@@ -45,7 +45,7 @@ export default function Home() {
       </div>
 
       {/* Sensor Control */}
-      <h2 className="text-lg font-semibold mb-2">Sensor Area</h2>
+      <h2 className="text-lg font-semibold mb-4 pb-2 border-b border-b-blue-400 ">Sensor Area</h2>
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="bg-[#d7efff] border border-[#008ded] rounded-xl p-4 flex flex-col">
           <div className="flex items-center justify-between mb-6">
@@ -118,7 +118,7 @@ export default function Home() {
       </div>
 
       {/* Riwayat Notifikasi */}
-      <h2 className="text-lg font-semibold mb-2 text-[#ff0000] border-b borderb">Riwayat Notifikasi</h2>
+      <h2 className="text-lg font-semibold mb-4 pb-2 text-[#ff0000] border-b border-b-[#ff0000]">Riwayat Notifikasi</h2>
       <div className="space-y-3">
         {log.map((item, index) => (
           <div
