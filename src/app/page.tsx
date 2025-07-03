@@ -38,8 +38,8 @@ export default function Home() {
             />
           </div>
           <div className="text-[#49426c]">
-            <p className="text-xl font-semibold">Halo, User</p>
-            <p>Selamat datang kembali</p>
+            <p className="text-xl font-semibold text-[#49426c]">Halo, User</p>
+            <p className="text-[#49426c]">Selamat datang kembali</p>
           </div>
         </div>
       </div>
