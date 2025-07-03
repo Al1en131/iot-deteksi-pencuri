@@ -27,19 +27,19 @@ export default function Home() {
 
       {/* Status Card */}
       <div className="grid mb-8">
-        <div className="bg-[#eec08c] rounded-xl px-4 text-left flex items-center justify-between">
-          <div className="text-[#49426c]">
-            <p className="text-xl font-semibold">Halo, User</p>
-            <p>Selamat datang kembali</p>
-          </div>
+        <div className="bg-[#eec08c] rounded-xl px-4 text-left flex items-center gap-4">
           <div className="">
             <Image
               src="/image/people.png"
               alt=""
-              className="h-44 w-full "
+              className="h-44 w-full"
               width={100}
               height={100}
             />
+          </div>
+          <div className="text-[#49426c]">
+            <p className="text-xl font-semibold">Halo, User</p>
+            <p>Selamat datang kembali</p>
           </div>
         </div>
       </div>
