@@ -21,13 +21,13 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-blue-400 px-6 py-6">
       {/* Header */}
-      <div className="text-center mb-5">
+      <div className="mb-5">
         <h1 className="text-3xl font-bold">AntiThief</h1>
       </div>
 
       {/* Status Card */}
       <div className="grid mb-8">
-        <div className="bg-[#d5e5ff] rounded-xl px-4 text-left flex items-center justify-between">
+        <div className="bg-[#d5e5ff] rounded-xl border border-blue-400 px-4 text-left flex items-center justify-between">
           <div className="">
             <p className="text-xl font-semibold">Halo, User</p>
             <p>Selamat datang kembali</p>
@@ -118,7 +118,7 @@ export default function Home() {
       </div>
 
       {/* Riwayat Notifikasi */}
-      <h2 className="text-lg font-semibold mb-2">Riwayat Notifikasi</h2>
+      <h2 className="text-lg font-semibold mb-2 text-[#ff0000] border-b borderb">Riwayat Notifikasi</h2>
       <div className="space-y-3">
         {log.map((item, index) => (
           <div
