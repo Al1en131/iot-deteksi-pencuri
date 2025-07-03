@@ -47,7 +47,7 @@ export default function Home() {
       {/* Sensor Control */}
       <h2 className="text-lg font-semibold mb-4">Sensor Area</h2>
       <div className="grid grid-cols-2 gap-4 mb-6">
-        <div className="bg-[#353157] rounded-xl p-4 flex flex-col">
+        <div className="bg-[#353157] rounded-xl p-5 flex flex-col">
           <div className="flex items-center justify-between mb-6">
             <p className="font-semibold text-[#eec08c]">Pintu</p>
 
@@ -82,7 +82,7 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="bg-[#353157] rounded-xl p-4 flex flex-col">
+        <div className="bg-[#353157] rounded-xl p-5 flex flex-col">
           <div className="flex items-center justify-between mb-6">
             <p className="font-semibold">Jendela</p>
 
@@ -123,7 +123,7 @@ export default function Home() {
         {log.map((item, index) => (
           <div
             key={index}
-            className="flex items-center gap-3 bg-[#353157]  rounded-xl p-3"
+            className="flex items-center gap-3 bg-[#353157]  rounded-xl p-6"
           >
             {/* <FaBell className="text-red-400 text-xl" /> */}
             <div className="flex items-center justify-center gap-3">
@@ -144,7 +144,7 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <p className="font-medium ">{item.sensor}</p>
+                <p className="font-medium mb-0.5">{item.sensor}</p>
                 <p className="text-xs ">{item.time}</p>
               </div>
             </div>
