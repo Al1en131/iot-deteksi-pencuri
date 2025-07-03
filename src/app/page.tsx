@@ -19,7 +19,7 @@ export default function Home() {
   const [jendelaAktif, setJendelaAktif] = useState(true);
 
   return (
-    <div className="min-h-screen bg-white text-blue-400 px-6 py-6">
+    <div className="min-h-screen bg-[#49426c] text-[#eec08c] px-6 py-6">
       {/* Header */}
       <div className="mb-5">
         <h1 className="text-3xl font-bold">AntiThief</h1>
@@ -27,8 +27,8 @@ export default function Home() {
 
       {/* Status Card */}
       <div className="grid mb-8">
-        <div className="bg-[#d5e5ff] rounded-xl border border-blue-400 px-4 text-left flex items-center justify-between">
-          <div className="">
+        <div className="bg-[#eec08c] rounded-xl px-4 text-left flex items-center justify-between">
+          <div className="text-[#49426c]">
             <p className="text-xl font-semibold">Halo, User</p>
             <p>Selamat datang kembali</p>
           </div>
@@ -45,18 +45,18 @@ export default function Home() {
       </div>
 
       {/* Sensor Control */}
-      <h2 className="text-lg font-semibold mb-4 pb-2 border-b border-b-blue-400 ">Sensor Area</h2>
+      <h2 className="text-lg font-semibold mb-4">Sensor Area</h2>
       <div className="grid grid-cols-2 gap-4 mb-6">
-        <div className="bg-[#d7efff] border border-[#008ded] rounded-xl p-4 flex flex-col">
+        <div className="bg-[#353157] rounded-xl p-4 flex flex-col">
           <div className="flex items-center justify-between mb-6">
-            <p className="font-semibold text-[#008ded]">Pintu</p>
+            <p className="font-semibold text-[#eec08c]">Pintu</p>
 
-            <div className="w-10 h-10 bg-[#b5dbff] border border-[#008ded] rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-[#494269] shadow-[0_4px_8px_rgba(0,0,0,0.3)] rounded-full flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
                 height="25"
-                fill="#008ded"
+                fill="#eec08c"
                 viewBox="0 0 256 256"
               >
                 <path d="M232,216H208V40a16,16,0,0,0-16-16H64A16,16,0,0,0,48,40V216H24a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16ZM64,40H192V216H64Zm104,92a12,12,0,1,1-12-12A12,12,0,0,1,168,132Z"></path>
@@ -66,8 +66,8 @@ export default function Home() {
           <div className="flex items-center justify-between gap-4">
             <div
               onClick={() => setPintuAktif((prev) => !prev)}
-              className={`w-11 h-6 rounded-full cursor-pointer flex items-center px-1 transition-colors duration-300 ${
-                pintuAktif ? "bg-[#008ded]" : "bg-gray-400"
+              className={`w-11 h-6 rounded-full shadow-[0_4px_8px_rgba(0,0,0,0.3)] cursor-pointer flex items-center px-1 transition-colors duration-300 ${
+                pintuAktif ? "bg-[#494269]" : "bg-gray-400"
               }`}
             >
               <div
@@ -77,16 +77,16 @@ export default function Home() {
               ></div>
             </div>
 
-            <span className="text-sm font-semibold text-[#008ded]">
+            <span className="text-sm font-semibold">
               {pintuAktif ? "ON" : "OFF"}
             </span>
           </div>
         </div>
-        <div className="bg-[#ccebd5] rounded-xl border border-[#009d2c] p-4 flex flex-col">
+        <div className="bg-[#353157] rounded-xl p-4 flex flex-col">
           <div className="flex items-center justify-between mb-6">
-            <p className="font-semibold text-[#009d2c]">Jendela</p>
+            <p className="font-semibold">Jendela</p>
 
-            <div className="w-10 h-10 bg-[#9de0b1] border border-[#009d2c] rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-[#494269] shadow-[0_4px_8px_rgba(0,0,0,0.3)] rounded-full flex items-center justify-center">
               <Image
                 src="/image/window.png"
                 alt=""
@@ -99,8 +99,8 @@ export default function Home() {
           <div className="flex items-center justify-between gap-4">
             <div
               onClick={() => setJendelaAktif((prev) => !prev)}
-              className={`w-11 h-6 rounded-full cursor-pointer flex items-center px-1 transition-colors duration-300 ${
-                jendelaAktif ? "bg-[#009d2c]" : "bg-gray-400"
+              className={`w-11 h-6 rounded-full cursor-pointer shadow-[0_4px_8px_rgba(0,0,0,0.3)] flex items-center px-1 transition-colors duration-300 ${
+                jendelaAktif ? "bg-[#494269]" : "bg-gray-400"
               }`}
             >
               <div
@@ -110,7 +110,7 @@ export default function Home() {
               ></div>
             </div>
 
-            <span className="text-sm font-semibold text-[#009d2c]">
+            <span className="text-sm font-semibold">
               {jendelaAktif ? "ON" : "OFF"}
             </span>
           </div>
@@ -118,22 +118,22 @@ export default function Home() {
       </div>
 
       {/* Riwayat Notifikasi */}
-      <h2 className="text-lg font-semibold mb-4 pb-2 text-[#ff0000] border-b border-b-[#ff0000]">Riwayat Notifikasi</h2>
+      <h2 className="text-lg font-semibold mb-4 ">Riwayat Notifikasi</h2>
       <div className="space-y-3">
         {log.map((item, index) => (
           <div
             key={index}
-            className="flex items-center gap-3 bg-[#ffd9d9]  border border-[#ff0000] rounded-xl p-3"
+            className="flex items-center gap-3 bg-[#353157]  rounded-xl p-3"
           >
             {/* <FaBell className="text-red-400 text-xl" /> */}
             <div className="flex items-center justify-center gap-3">
-              <div className="w-10 h-10 bg-[#ffb9b9] border border-[#ff0000] rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#494269] shadow-[0_4px_8px_rgba(0,0,0,0.3)] rounded-full flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
-                  stroke="#ff0000"
+                  stroke="#eec08c"
                   className="size-6"
                 >
                   <path
@@ -144,8 +144,8 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <p className="font-medium text-[#ff0000]">{item.sensor}</p>
-                <p className="text-xs text-[#ff0000]">{item.time}</p>
+                <p className="font-medium ">{item.sensor}</p>
+                <p className="text-xs ">{item.time}</p>
               </div>
             </div>
           </div>
