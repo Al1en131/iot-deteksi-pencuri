@@ -1,5 +1,110 @@
 [
   {
+    "sensor": "Pintu",
+    "time": "4 Jul 2025 18:15:15",
+    "message": "Pintu Terbuka"
+  },
+  {
+    "sensor": "Pintu",
+    "time": "4 Jul 2025 18:15:14",
+    "message": "Pintu Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:20",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:19",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:18",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:16",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:15",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:14",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:13",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:12",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:11",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:10",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:08",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:07",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:05",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:01",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:14:00",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:13:59",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:13:55",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:13:54",
+    "message": "Jendela Terbuka"
+  },
+  {
+    "sensor": "Jendela",
+    "time": "4 Jul 2025 18:13:53",
+    "message": "Jendela Terbuka"
+  },
+  {
     "sensor": "Jendela",
     "time": "4 Jul 2025 18:05:47",
     "message": "Jendela Terbuka"
@@ -143,95 +248,5 @@
     "sensor": "Jendela",
     "time": "4 Jul 2025 18:05:09",
     "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Jendela",
-    "time": "4 Jul 2025 18:05:07",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Jendela",
-    "time": "4 Jul 2025 18:05:06",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Jendela",
-    "time": "4 Jul 2025 18:05:05",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Jendela",
-    "time": "4 Jul 2025 18:05:04",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Jendela",
-    "time": "4 Jul 2025 18:05:02",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Jendela",
-    "time": "4 Jul 2025 18:05:01",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Jendela Terbuka",
-    "time": "4 Jul 2025 17:37:30",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Pintu Terbuka",
-    "time": "4 Jul 2025 17:37:29",
-    "message": "Pintu Terbuka"
-  },
-  {
-    "sensor": "Jendela Terbuka",
-    "time": "4 Jul 2025 17:30:12",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Pintu Terbuka",
-    "time": "4 Jul 2025 17:30:08",
-    "message": "Pintu Terbuka"
-  },
-  {
-    "sensor": "Jendela Terbuka",
-    "time": "5 Jul 2025 00:26:25",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Pintu Terbuka",
-    "time": "5 Jul 2025 00:26:23",
-    "message": "Pintu Terbuka"
-  },
-  {
-    "sensor": "Jendela Terbuka",
-    "time": "5 Jul 2025 00:26:11",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Pintu Terbuka",
-    "time": "5 Jul 2025 00:26:09",
-    "message": "Pintu Terbuka"
-  },
-  {
-    "sensor": "Jendela Terbuka",
-    "time": "2025-07-04T10:23:44.428Z",
-    "message": "Jendela Terbuka"
-  },
-  {
-    "sensor": "Pintu Terbuka",
-    "time": "2025-07-04T10:23:43.253Z",
-    "message": "Pintu Terbuka"
-  },
-  {
-    "sensor": "Pintu Depan",
-    "time": "Jul  4 2025 17:02:49",
-    "message": "PINTU TERBUKA"
-  },
-  {
-    "sensor": "Pintu Depan",
-    "time": "Jul  4 2025 17:02:49",
-    "message": "PINTU TERBUKA"
   }
 ]
