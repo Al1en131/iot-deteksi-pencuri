@@ -1,31 +1,45 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface Notif {
   sensor: string;
   time: string;
+  message: string;
 }
 
 export default function Home() {
-  const [log] = useState<Notif[]>([
-    { sensor: "Pintu Depan", time: "2025-07-03 10:15:23" },
-    { sensor: "Jendela Belakang", time: "2025-07-03 09:43:02" },
-    { sensor: "Pintu Samping", time: "2025-07-02 20:10:11" },
-  ]);
+  const [log, setLog] = useState<Notif[]>([]);
+
+  useEffect(() => {
+    const eventSource = new EventSource("/api/notification/stream");
+
+    eventSource.onmessage = async (event) => {
+      const res = await fetch("/api/notification");
+      const json = await res.json();
+      setLog(json.data);
+    };
+
+    eventSource.onerror = (err) => {
+      console.error("SSE Error:", err);
+      eventSource.close();
+    };
+
+    return () => {
+      eventSource.close();
+    };
+  }, []);
 
   const [pintuAktif, setPintuAktif] = useState(true);
   const [jendelaAktif, setJendelaAktif] = useState(true);
 
   return (
     <div className="min-h-screen bg-[#49426c] text-[#eec08c] px-6 py-6">
-      {/* Header */}
       <div className="mb-5">
         <h1 className="text-3xl font-bold">AntiThief</h1>
       </div>
 
-      {/* Status Card */}
       <div className="grid mb-8">
         <div className="bg-[#eec08c] rounded-xl px-4 text-left flex items-center gap-4">
           <div className="">
@@ -44,7 +58,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Sensor Control */}
       <h2 className="text-lg font-semibold mb-4">Sensor Area</h2>
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="bg-[#353157] rounded-xl p-5 flex flex-col">
@@ -63,9 +76,25 @@ export default function Home() {
               </svg>
             </div>
           </div>
+          {/* Pintu */}
           <div className="flex items-center justify-between gap-4">
             <div
-              onClick={() => setPintuAktif((prev) => !prev)}
+              onClick={async () => {
+                const newStatus = !pintuAktif;
+                setPintuAktif(newStatus);
+
+                try {
+                  await fetch("http://192.168.20.45/pintu-status", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "text/plain",
+                    },
+                    body: newStatus.toString(),
+                  });
+                } catch (err) {
+                  console.error("Gagal kirim status pintu:", err);
+                }
+              }}
               className={`w-11 h-6 rounded-full shadow-[0_4px_8px_rgba(0,0,0,0.3)] cursor-pointer flex items-center px-1 transition-colors duration-300 ${
                 pintuAktif ? "bg-[#494269]" : "bg-gray-400"
               }`}
@@ -96,9 +125,25 @@ export default function Home() {
               />
             </div>
           </div>
+          {/* Jendela */}
           <div className="flex items-center justify-between gap-4">
             <div
-              onClick={() => setJendelaAktif((prev) => !prev)}
+              onClick={async () => {
+                const newStatus = !jendelaAktif;
+                setJendelaAktif(newStatus);
+
+                try {
+                  await fetch("http://192.168.20.45/jendela-status", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "text/plain",
+                    },
+                    body: newStatus.toString(),
+                  });
+                } catch (err) {
+                  console.error("Gagal kirim status jendela:", err);
+                }
+              }}
               className={`w-11 h-6 rounded-full cursor-pointer shadow-[0_4px_8px_rgba(0,0,0,0.3)] flex items-center px-1 transition-colors duration-300 ${
                 jendelaAktif ? "bg-[#494269]" : "bg-gray-400"
               }`}
@@ -125,7 +170,6 @@ export default function Home() {
             key={index}
             className="flex items-center gap-3 bg-[#353157]  rounded-xl p-6"
           >
-            {/* <FaBell className="text-red-400 text-xl" /> */}
             <div className="flex items-center justify-center gap-3">
               <div className="w-10 h-10 bg-[#494269] shadow-[0_4px_8px_rgba(0,0,0,0.3)] rounded-full flex items-center justify-center">
                 <svg
@@ -144,7 +188,7 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <p className="font-medium mb-0.5">{item.sensor}</p>
+                <p className="font-medium mb-0.5">{item.message}</p>
                 <p className="text-xs ">{item.time}</p>
               </div>
             </div>
