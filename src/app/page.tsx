@@ -71,7 +71,7 @@ export default function Home() {
               }`}
             >
               <div
-                className={`w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-300 ${
+                className={`w-5 h-5 rounded-full bg-[#eec08c] shadow-md transform transition-transform duration-300 ${
                   pintuAktif ? "translate-x-5" : "translate-x-0"
                 }`}
               ></div>
@@ -104,7 +104,7 @@ export default function Home() {
               }`}
             >
               <div
-                className={`w-5 h-5 rounded-full bg-white shadow-md transform transition-transform duration-300 ${
+                className={`w-5 h-5 rounded-full bg-[#eec08c] shadow-md transform transition-transform duration-300 ${
                   jendelaAktif ? "translate-x-5" : "translate-x-0"
                 }`}
               ></div>
