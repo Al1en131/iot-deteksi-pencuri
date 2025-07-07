@@ -1,4 +1,4 @@
-export async function GET(request: Request) {
+export async function GET() {
   const encoder = new TextEncoder();
 
   let interval: NodeJS.Timeout;
@@ -11,7 +11,7 @@ export async function GET(request: Request) {
         controller.enqueue(encoder.encode(data));
       };
 
-      sendData(); 
+      sendData();
 
       interval = setInterval(() => {
         sendData();
@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     },
 
     cancel() {
-      clearInterval(interval); 
+      clearInterval(interval);
     },
   });
 
