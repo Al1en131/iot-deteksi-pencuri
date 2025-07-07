@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface Notif {
@@ -11,6 +11,10 @@ interface Notif {
 
 export default function Home() {
   const [log, setLog] = useState<Notif[]>([]);
+  const prevLatestId = useRef<string | null>(null);
+  const isInitial = useRef(true);
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   useEffect(() => {
     const eventSource = new EventSource("/api/notification/stream");
@@ -18,6 +22,30 @@ export default function Home() {
     eventSource.onmessage = async () => {
       const res = await fetch("/api/notification");
       const json = await res.json();
+
+      const latest = json.data?.[0];
+
+      if (latest) {
+        const uniqueKey = latest.sensor + latest.time;
+
+        // Skip notifikasi pertama saat page di-refresh
+        if (isInitial.current) {
+          prevLatestId.current = uniqueKey;
+          isInitial.current = false;
+        } else if (uniqueKey !== prevLatestId.current) {
+          prevLatestId.current = uniqueKey;
+
+          // Tampilkan popup
+          setPopupMessage(latest.message);
+          setPopupVisible(true);
+
+          setTimeout(() => {
+            setPopupVisible(false);
+            setPopupMessage("");
+          }, 5000);
+        }
+      }
+
       setLog(json.data);
     };
 
@@ -36,6 +64,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#49426c] text-[#eec08c] px-6 py-6">
+      {popupVisible && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="bg-red-600 text-white px-8 py-5 rounded-2xl shadow-xl text-center text-lg animate-pulse">
+            🚨 {popupMessage}
+          </div>
+        </div>
+      )}
+
       <div className="mb-5">
         <h1 className="text-3xl font-bold">AntiThief</h1>
       </div>
