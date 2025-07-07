@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Notif {
   sensor: string;
@@ -28,20 +29,18 @@ export default function Home() {
       if (latest) {
         const uniqueKey = latest.sensor + latest.time;
 
-        // Skip notifikasi pertama saat page di-refresh
         if (isInitial.current) {
           prevLatestId.current = uniqueKey;
           isInitial.current = false;
         } else if (uniqueKey !== prevLatestId.current) {
           prevLatestId.current = uniqueKey;
 
-          // Tampilkan popup (tanpa auto close)
           setPopupMessage(latest.message);
           setPopupVisible(true);
         }
       }
 
-      setLog(json.data);
+      setLog((json.data || []).slice(0, 4));
     };
 
     eventSource.onerror = (err) => {
@@ -87,29 +86,26 @@ export default function Home() {
           </div>
         </div>
       )}
-
       <div className="mb-5">
         <h1 className="text-3xl font-bold">AntiThief</h1>
       </div>
-
       <div className="grid mb-8">
-        <div className="bg-[#eec08c] rounded-xl px-4 text-left flex items-center gap-4">
-          <div className="">
+        <div className="bg-[#eec08c] rounded-xl px-4 flex items-center justify-between h-44">
+          <div className="h-full flex items-center">
             <Image
-              src="/image/people.png"
+              src="/image/people.svg"
               alt=""
-              className="h-44 w-full"
+              className="h-full w-auto object-cover block overflow-hidden leading-none"
               width={100}
               height={100}
             />
           </div>
           <div className="text-[#49426c]">
-            <p className="text-xl font-semibold text-[#49426c]">Halo, User</p>
-            <p className="text-[#49426c]">Selamat datang kembali</p>
+            <p className="text-lg font-semibold">Halo, User</p>
+            <p className="text-sm">Selamat datang kembali</p>
           </div>
         </div>
       </div>
-
       <h2 className="text-lg font-semibold mb-4">Sensor Area</h2>
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="bg-[#353157] rounded-xl p-5 flex flex-col">
@@ -213,9 +209,27 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* Riwayat Notifikasi */}
-      <h2 className="text-lg font-semibold mb-4 ">Riwayat Notifikasi</h2>
+      <div className="flex items-center justify-between mb-4 z-40">
+        <h2 className="text-lg font-semibold">Notifikasi Terbaru</h2>
+        <Link href="/notification" className="z-50">
+          <div className="bg-[#eec08c] p-2 z-50 rounded-full text-[#49426c] flex items-center justify-center hover:bg-[#eec08c]/80 transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+              />
+            </svg>
+          </div>
+        </Link>
+      </div>
       <div className="space-y-3">
         {log.map((item, index) => (
           <div
