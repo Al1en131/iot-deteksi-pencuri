@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const eventSource = new EventSource("/api/notification/stream");
 
-    eventSource.onmessage = async (event) => {
+    eventSource.onmessage = async () => {
       const res = await fetch("/api/notification");
       const json = await res.json();
       setLog(json.data);
