@@ -35,14 +35,9 @@ export default function Home() {
         } else if (uniqueKey !== prevLatestId.current) {
           prevLatestId.current = uniqueKey;
 
-          // Tampilkan popup
+          // Tampilkan popup (tanpa auto close)
           setPopupMessage(latest.message);
           setPopupVisible(true);
-
-          setTimeout(() => {
-            setPopupVisible(false);
-            setPopupMessage("");
-          }, 5000);
         }
       }
 
@@ -65,9 +60,30 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#49426c] text-[#eec08c] px-6 py-6">
       {popupVisible && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="bg-red-600 text-white px-8 py-5 rounded-2xl shadow-xl text-center text-lg animate-pulse">
-            🚨 {popupMessage}
+        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center">
+          <div className="bg-[#49426c]  text-white px-8 py-6 rounded-2xl shadow-xl text-center max-w-xs w-full animate-pulse">
+            <Image
+              src="/image/warning.svg"
+              alt="Warning"
+              width={100}
+              height={100}
+              className="mx-auto h-24 w-24 mb-3"
+            />
+            <p className="text-lg mb-2 font-semibold text-[#eec08c]">
+              {popupMessage}
+            </p>
+            <p className="text-sm mb-1 text-[#eec08c]">
+              Aktivitas mencurigakan terdeteksi. Segera periksa rumah Anda.
+            </p>
+            <button
+              onClick={() => {
+                setPopupVisible(false);
+                setPopupMessage("");
+              }}
+              className="bg-[#eec08c] text-[#49426c] font-semibold px-4 py-2 rounded-md hover:bg-[#eec08c]/80 transition"
+            >
+              OK
+            </button>
           </div>
         </div>
       )}
